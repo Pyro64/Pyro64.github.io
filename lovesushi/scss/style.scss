@@ -1,0 +1,445 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;1,600&display=swap');
+@import "../scss/mixins";
+$text:#9490b5;
+$background:#1c1b2a;
+
+body {
+    font-family: 'Montserrat';
+    background: #1a1921;
+    color: #fff;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+
+// HEADER
+.header {
+    position: fixed;
+    background-color: $background;
+    width: 100%;
+    // ALERT
+    z-index: 2;
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__logo {
+        @include fluid(width, 200px, 321px);
+        @include fluid(padding-right, 30px, 70px);
+        @include fluid(padding-left, 15px, 30px);
+        border-right:1px solid #343244;
+    }
+    &__nav {
+        @include fluid(font-size, 14px, 16px);
+        @include fluid(margin-left, 15px, 30px);
+        @include fluid(margin-right, 65px, 140px);
+        display: flex;
+        flex-wrap: wrap;
+        font-weight: 500;
+    }
+    &__link {
+        @include fluid(padding-top, 20px, 40px);
+        @include fluid(padding-bottom, 20px, 40px);
+        @include fluid(margin-right, 20px, 40px);
+        color:$text;
+        position: relative;
+        transition: all 0.3s ease-in-out;
+        &:last-child {
+            @include fluid(margin-right, 0px, 0px);
+        }
+        &::before {
+            content: '';
+            position: absolute;
+            top:0;
+            width: 100%;
+            @include fluid(height, 3px, 6px);
+            border-radius: 0px 0px 6px 6px;
+            background: transparent;
+            transition: all .3s ease-in-out;
+        }
+        &:hover {
+            color: #fff;
+            &::before {
+                background: #e9495c;
+                box-shadow: 0px 0px 30px #f54778;
+            }
+        }
+    }
+    &__menu {
+        display: flex;
+        align-items: center;
+    }
+    &__social {
+        @include fluid(font-size, 12px, 16px);
+        @include fluid(padding-right, 20px, 35px);
+        @include fluid(padding-left, 20px, 35px);
+        @include fluid(padding-top, 10px, 25px);
+        @include fluid(padding-bottom, 10px, 25px);
+        border-right:1px solid #343244;
+        border-left:1px solid #343244;
+        display: flex;
+        align-items: center;
+    }
+    .icon-vk {
+        @include fluid(font-size, 8px, 10px);
+    }
+    &__svg {
+        @include fluid(margin-right, 20px, 40px);
+        color:#9490b5;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+            color:#e9495c;
+            filter:drop-shadow(0px 0px 30px #f54778);
+        }
+        &:last-child {
+            @include fluid(margin-right, 0px, 0px);
+        }
+    }
+    &__user {
+        color:#9490b5;
+        @include fluid(font-size, 16px, 32px);
+        @include fluid(padding-right, 20px, 35px);
+        @include fluid(padding-left, 20px, 35px);
+        @include fluid(padding-top, 8px, 15px);
+        @include fluid(padding-bottom, 8px, 15px);
+        border-right:1px solid #343244;
+    }
+    &__basket {
+        @include fluid(padding, 15px, 35px);
+        position: relative;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+            background-color: #e9495c;
+            .icon-basket {
+                color: #fff;;
+            }
+            .header__number {
+                background-color:#fff;
+                color:#e9495c;
+            }
+        }
+    }
+    &__item {
+        position: absolute;
+        top: 35%;
+        left: 50%;
+    }
+    &__number {
+        @include fluid(font-size, 8px, 12px);
+        @include fluid(padding-top, 2px, 3px);
+        @include fluid(padding-bottom, 2px, 3px);
+        @include fluid(padding-left, 5px, 8px);
+        @include fluid(padding-right, 5px, 8px);
+        transition: all 0.3s ease-in-out;
+        background-color:$background;
+        font-weight: 700;
+        color: #fff;
+        border: 3px solid #e9495c;
+        border-radius: 50%;
+    }
+    .icon-basket {
+        transition: all 0.3s ease-in-out;
+        color:#9490b5;
+        @include fluid(font-size, 20px, 32px);
+    }
+}
+// SIDEBAR
+.sidebar {
+    @include fluid(margin-top, 60px, 100px);
+    @include fluid(padding-top, 20px, 40px);
+    @include fluid(padding-left, 15px, 30px);
+    @include fluid(padding-right, 15px, 30px);
+    @include fluid(width, 180px, 320px);
+    position: fixed;
+    overflow: auto;
+    height: 100%;
+    background: linear-gradient(#2c2a39 0%, #22212e 100%);
+    &__title {
+        @include fluid(font-size, 20px, 24px);
+        @include fluid(padding-bottom, 10px, 20px);
+        border-bottom: 1px solid #343244;
+        color:#9490b5;
+        font-weight: 500;
+    }
+    &__nav {
+        @include fluid(margin-top, 20px, 40px);
+    }
+    &__item { 
+        &:hover {
+        .sidebar__icon {
+            filter: drop-shadow(0px 0px 30px #e9495c);
+        }
+        .sidebar__link {
+            color:#fff;
+        }
+    }
+        @include fluid(padding-bottom, 15px, 30px);
+        font-weight: 400;
+        display: flex;
+    }
+    &__icon {
+        @include fluid(margin-right, 10px, 20px);
+        @include fluid(font-size, 12px, 24px);
+        color:#e9495c;
+    }
+    &__link {
+        transition: all .3s ease-in-out;
+        color:$text;
+    }
+}
+// CONTENT
+.content {
+    position: relative;
+    @include fluid(padding-top, 50px, 100px);
+    @include fluid(margin-left, 180px, 320px);
+    &__swipper {
+        @include fluid(height, 450px, 907px);
+    }
+    &__stock {
+        position: relative;
+        @include fluid(padding-top, 150px, 330px);
+        @include fluid(padding-left, 30px, 60px);
+        &-title {
+            color:#fff;
+            @include fluid(font-size, 12px, 24px);
+            font-weight: 400;
+        }
+        &-text {
+            @include fluid(padding-bottom, 20px, 40px);
+            @include fluid(font-size, 36px, 72px);
+            font-family: 'Circe Rounded Alt';
+            font-weight: 400;
+            color:#fff;
+        }
+    }
+    &__background {
+        position: absolute;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+    &__block {
+        @include fluid(padding-top, 30px, 60px);
+        @include fluid(padding-left, 30px, 60px);
+        @include fluid(padding-bottom, 30px, 60px);
+        &--background {
+            @include fluid(padding-right, 30px, 65px);
+            background: url('../img/background.png') no-repeat;
+            background-size: cover;
+            background-position: bottom;
+        }
+        &--color {
+            background-color: #21212B;
+            @include fluid(padding-right, 30px, 65px);
+        }
+    }
+    &__title {
+        @include fluid(font-size, 24px, 48px);
+        font-family: "Circe Rounded Alt";
+        color: #fff;
+        position: relative;
+        @include fluid(padding-bottom, 15px, 30px);
+        &::after {
+            content: '';
+            position: absolute;
+            @include fluid(height, 3px, 6px);
+            border-radius: 3px;
+            background-color: #e9495c;
+            width: 4%;
+            bottom: 0;
+            left: 0;
+        }  
+    }
+    &__text {
+        width: 55%;
+        @include fluid(margin-top, 20px, 40px);
+        @include fluid(margin-right, 100px, 210px);
+        @include fluid(font-size, 14px, 18px);
+        @include fluid(line-height, 18px, 36px);
+        color: $text;
+        p {
+            @include fluid(padding-bottom, 20px, 40px);
+            &:last-child {
+                @include fluid(padding-bottom, 0px, 0px);
+            }
+        }
+    }
+    &__inner {
+        display: flex;
+        align-items: center;
+    }
+    &__img {
+    &--heart {
+        @include fluid(width, 150px, 330px);
+    }
+    }
+}
+.advantages {
+    display: flex;
+    justify-content: space-between;
+    &__item  {
+        // vopros
+        display: flex;
+        width: 18%;
+        
+    }
+    &__svg {
+        @include fluid(font-size, 24px, 48px);
+        color: #E9495C;
+        @include fluid(margin-right, 10px, 20px);
+    }
+    &__text {
+        @include fluid(font-size, 12px, 16px);
+        line-height: 24px;
+        color: #9490b5;
+        font-weight: 600;
+        &--padding {
+            @include fluid(padding-right, 5px, 10px);
+        }
+        span {
+            color:#fff;
+        }
+    }
+}
+// CARD
+.card {
+    position: relative;
+    @include fluid(margin-top, 20px, 40px);
+    &__swipper {
+        @include fluid(height, 400px, 580px);
+    }
+    &__item {
+        @include fluid(margin-right, 30px, 60px);
+        
+    }
+    &__block {
+        display: flex;
+    }
+    &__inner {
+        @include fluid(padding-left, 8px, 15px);
+        @include fluid(padding-right, 30px, 60px);
+        
+    }
+    &__flex {
+        display: flex;
+    }
+    &__img {
+        border-radius: 20px;
+        border: 1px solid #343244;
+        @include fluid(width, 165px, 320px);
+    }
+    &__title {
+        font-family: "Circe Rounded Alt";
+        @include fluid(font-size, 12px, 24px);
+        color: #fff;
+        @include fluid(padding-top, 10px, 25px);
+        
+    }
+    &__text {
+        @include fluid(font-size, 12px, 14px);
+        @include fluid(line-height, 18px, 21px);
+        font-weight: 400;
+        color: $text;
+        p {
+            @include fluid(padding-top, 8px, 15px);
+        }
+        &--color {
+            color: #5b5872;
+            p {
+                @include fluid(padding-top, 8px, 15px);
+            }
+        }
+        
+    }
+    &__info {
+        @include fluid(padding-top, 5px, 10px);
+        @include fluid(margin-bottom, 20px, 40px);
+        display: flex;
+        align-items: center;
+    }
+    &__price {
+        font-family: "Circe Rounded Alt";
+        color: #e9495c;
+        @include fluid(font-size, 18px, 24px);
+        @include fluid(margin-right, 20px, 40px);
+        
+    }
+    &__icon {
+        @include fluid(margin, 1px, 2px);
+        @include fluid(padding, 5px, 10px);
+        background: #5b5872;
+        border-radius: 100%;
+        @include fluid(height, 18px, 36px);
+        cursor: pointer;
+        transition: background .3s ease-in-out;
+        &:hover {
+            background:#e9495c;;
+        }
+    }
+    &__number {
+        @include fluid(margin-left, 5px, 10px);
+        @include fluid(margin-right, 5px, 10px);
+    }
+    &__quantity {
+        display: flex;
+        align-items: center;
+        border: 1px solid #5b5872;
+        border-radius: 20px;
+    }
+}
+.icon-plus,
+.icon-minus {
+    @include fluid(font-size, 14px, 16px);
+}
+.btn {
+    @include fluid(padding-top, 10px, 20px);
+    @include fluid(padding-bottom, 10px, 20px);
+    @include fluid(padding-left, 40px, 80px);
+    @include fluid(padding-right, 40px, 80px);
+    @include fluid(border-radius,15px, 30px);
+    cursor: pointer;
+    background-color: $background;
+    // ALERT
+    backdrop-filter: blur(20px);
+    color:#fff;
+    border: 2px solid #e9495c;
+    &--card {
+        @include fluid(padding-top, 10px, 20px);
+        @include fluid(padding-bottom, 10px, 20px);
+        @include fluid(padding-left, 22px, 55px);
+        @include fluid(padding-right, 22px, 55px);
+        
+    }
+}
+// SWIPPER
+.swiper-pagination-bullet {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    background: rgba(34, 33, 46, 0.8);
+    border: 2px solid #9490b5;
+    border-radius: 100%;
+    opacity: 1;
+}
+.swiper-pagination-bullet-active {
+    background: #e9495c;
+    border: #e9495c;
+    
+}
+.swiper-container-vertical > .swiper-pagination-bullets {
+    @include fluid(right, 30px, 60px);
+}
+.swiper-container-vertical > .swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0;
+    margin-top: 40px;
+}
+.swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
+
+}
+
